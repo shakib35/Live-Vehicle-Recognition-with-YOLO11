@@ -1,5 +1,5 @@
 
-path: /home/shakib/Documents/Live-Vehicle-Recognition-with-YOLO11/Dataset
+path: /Users/shaki/Documents/GitHub/Live-Vehicle-Recognition-with-YOLO11/Dataset
 
 train: train/images
 test: test/images
