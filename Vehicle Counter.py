@@ -4,8 +4,8 @@ import numpy as np
 import torch
 
 # Load YOLO model
-device = 'cpu'
-model_path = r"B:\Documents\GitHub\Live-Vehicle-Recognition-with-YOLO11\YoLov11_Car_Object_Detection\train8\weights\best.pt"
+device = 'mps'
+model_path = "/Users/shaki/Documents/GitHub/Live-Vehicle-Recognition-with-YOLO11/YoLov11_Car_Object_Detection/train2/weights/best.pt"
 model = YOLO(model_path).to(device)
 
 
@@ -19,6 +19,7 @@ counted_ids = set()  # Set to track counted vehicle IDs
 def process_frame(frame, original_frame):
     global vehicle_count, counted_ids
 
+    # Convert the grayscale frame to 3-channel for YOLO compatibility
     gray_frame_3channel = cv2.cvtColor(frame, cv2.COLOR_GRAY2BGR)
 
     # Perform inference on the 3-channel grayscale frame
@@ -99,6 +100,6 @@ def process_video(video_path, output_path):
     cv2.destroyAllWindows()
 
 # Main function
-video_path = r"path/to/your/video.mp4"  # Replace with your video file path
-output_path = r"path/to/output/video.mp4"  # Replace with your desired output file path
+video_path = '/Volumes/T7/vehicles.mp4'  # Replace with your video file path
+output_path = '/Volumes/T7/vehicles_count.mp4'  # Replace with your desired output file path
 process_video(video_path, output_path)
