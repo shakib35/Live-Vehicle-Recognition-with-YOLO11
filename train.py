@@ -19,12 +19,12 @@ experiment = start(
     project_name="YoLov11_Car_Object_Detection v2",
     workspace="shakib35"
 )
-experiment_name = "YoLo11m"
+experiment_name = "YoLo11s"
 experiment.set_name(experiment_name)
 
 # Parameters
 device = "cuda"
-model = YOLO("yolo11m.pt")
+model = YOLO("yolo11s.pt")
 
 # Logging Parameters to Comet
 experiment.log_parameter("device", device)
@@ -36,7 +36,6 @@ start_time = time.time()
 results = model.train(
     data="config.yaml",
     project="Car Detection",
-    save_period=1,
     batch=16,
     epochs=200,
     device=device
@@ -49,7 +48,7 @@ print(f"Training completed in {training_time} seconds")
 # experiment.log_metric(name="training_time", value=training_time)
 
 # Save final trained model
-model_path = 'Car_Object_Detection_medium'
+model_path = 'Car_Object_Detection_small'
 model.save(model_path)
 print(f"Model saved to {model_path}")
 experiment.log_model("trained_model", model_path)
