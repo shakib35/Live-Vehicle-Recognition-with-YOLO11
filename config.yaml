@@ -1,4 +1,3 @@
-
 path: /home/shakib/Documents/Live-Vehicle-Recognition-with-YOLO11/Dataset
 
 train: train/images
@@ -7,4 +6,9 @@ val:  valid/images
 
 # Classes
 names:
-  0: Vehicle
+  0: Ambulance
+  1: Bus
+  2: Car
+  3: Motorcycle
+  4: Truck
+

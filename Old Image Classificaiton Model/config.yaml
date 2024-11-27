@@ -1,0 +1,10 @@
+
+path: /home/shakib/Documents/Live-Vehicle-Recognition-with-YOLO11/Dataset
+
+train: train/images
+test: test/images
+val:  valid/images
+
+# Classes
+names:
+  0: Vehicle

@@ -15,30 +15,30 @@ LABEL_PLOT_NAMES = "labels", "labels_correlogram"
 
 # Comet logging setup
 experiment = start(
-    api_key="", #input api key
-    project_name="YoLov11_Car_Object_Detection",
+    api_key="W2y4B8fSkwtOQPElr8nni3A1H", #input api key
+    project_name="YoLov11_Car_Object_Detection v2",
     workspace="shakib35"
 )
-experiment_name = "YoLo11s"
+experiment_name = "YoLo11m"
 experiment.set_name(experiment_name)
 
 # Parameters
 device = "cuda"
-model = YOLO("yolo11s.pt")
+model = YOLO("yolo11m.pt")
 
 # Logging Parameters to Comet
 experiment.log_parameter("device", device)
-experiment.log_parameter("epochs", 30)
+experiment.log_parameter("epochs", 200)
 
 start_time = time.time()
 
 # Train model based on YAML configuration
 results = model.train(
     data="config.yaml",
-    project="YoLov11_Car_Object_Detection",
+    project="Car Detection",
     save_period=1,
     batch=16,
-    epochs=30,
+    epochs=200,
     device=device
 )
 
@@ -46,10 +46,10 @@ results = model.train(
 end_time = time.time()
 training_time = end_time - start_time
 print(f"Training completed in {training_time} seconds")
-experiment.log_metric(name="training_time", value=training_time)
+# experiment.log_metric(name="training_time", value=training_time)
 
 # Save final trained model
-model_path = 'Car_Object_Detection_small'
+model_path = 'Car_Object_Detection_medium'
 model.save(model_path)
 print(f"Model saved to {model_path}")
 experiment.log_model("trained_model", model_path)
@@ -57,5 +57,5 @@ experiment.log_model("trained_model", model_path)
 # Evaluate on validation data to calculate metrics
 metrics = model.val()
 
-# End the experiment
+#End the experiment
 experiment.end()
