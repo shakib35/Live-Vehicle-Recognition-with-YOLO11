@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import cv2
 
 # Path to the YOLO model and video file
-model_path = '/Users/shaki/Documents/GitHub/Live-Vehicle-Recognition-with-YOLO11/YoLov11_Car_Object_Detection/train2/weights/best.pt'
+model_path = "B:\Documents\GitHub\Live-Vehicle-Recognition-with-YOLO11\Car_Object_Detection_medium.pt"
 video_path = '/Volumes/T7/vehicles.mp4'
 
 # Load the YOLO model
