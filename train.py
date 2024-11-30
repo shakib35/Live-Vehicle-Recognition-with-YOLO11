@@ -15,7 +15,7 @@ LABEL_PLOT_NAMES = "labels", "labels_correlogram"
 
 # Comet logging setup
 experiment = start(
-    api_key="W2y4B8fSkwtOQPElr8nni3A1H", #input api key
+    api_key="", #input api key
     project_name="YoLov11_Car_Object_Detection v2",
     workspace="shakib35"
 )
