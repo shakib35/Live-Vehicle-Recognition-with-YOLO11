@@ -5,15 +5,15 @@ import torch
 
 # Load YOLO model
 device = 'mps'
-model_path = "/Users/shaki/Documents/GitHub/Live-Vehicle-Recognition-with-YOLO11/YoLov11_Car_Object_Detection/train2/weights/best.pt"
+model_path = '/Users/shaki/Documents/GitHub/Live-Vehicle-Recognition-with-YOLO11/Car Detection/small/weights/best.pt'
 model = YOLO(model_path).to(device)
 
 
-VEHICLE_CLASSES = ["vehicle"]
+VEHICLE_CLASSES = ["Ambulance", "Bus", "Car", "Motorcycle", "Truck"]
 
 # Initialize vehicle counting variables
 vehicle_count = 0
-line_position = 300  # Horizontal line position for counting
+line_position = 1500  # Horizontal line position for counting
 counted_ids = set()  # Set to track counted vehicle IDs
 
 def process_frame(frame, original_frame):
@@ -100,6 +100,6 @@ def process_video(video_path, output_path):
     cv2.destroyAllWindows()
 
 # Main function
-video_path = '/Volumes/T7/vehicles.mp4'  # Replace with your video file path
-output_path = '/Volumes/T7/vehicles_count.mp4'  # Replace with your desired output file path
+video_path = '/Users/shaki/Downloads/vehicles.mp4'  # Replace with your video file path
+output_path = '/Users/shaki/Downloads/vehicles_count.mp4'  # Replace with your desired output file path
 process_video(video_path, output_path)
